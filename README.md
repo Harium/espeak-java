@@ -20,3 +20,12 @@ manVoice.code = "m3";
 Espeak man = new Espeak(manVoice, "en");
 man.speak("Hello World!");
 ```
+
+## Maven
+```
+<dependency>
+    <groupId>com.harium.hci</groupId>
+    <artifactId>espeak</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
