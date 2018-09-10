@@ -8,24 +8,13 @@ import java.io.IOException;
 public class Espeak {
 
     private Voice voice;
-    private String language;
 
     public Espeak() {
-        this(new Voice(), "en");
+        this(new Voice());
     }
 
     public Espeak(Voice voice) {
-        this(voice, "en");
-    }
-
-    public Espeak(String language) {
-        this();
-        this.language = language;
-    }
-
-    public Espeak(Voice voice, String language) {
         this.voice = voice;
-        this.language = language;
     }
 
     /**
@@ -34,11 +23,12 @@ public class Espeak {
      * @param text - the text to speak
      */
     public void speak(String text) {
-        execute("espeak", "-vaf+" + voice.code,
+        execute("espeak",
+                "-v", voice.name + voice.variant,
                 "-p", Integer.toString(voice.pitch),
                 "-a", Integer.toString(voice.amplitude),
                 "-s", Integer.toString(voice.speed),
-                "-l", language,
+                "-g", Integer.toString(voice.gap),
                 text);
     }
 
@@ -56,7 +46,7 @@ public class Espeak {
                     e.printStackTrace();
                 }
             }
-        }).start();
+        }, "espeak").start();
     }
 
 }
