@@ -12,12 +12,13 @@ espeak.speak("Hello World!");
 ## Complete Example
 ```
 Voice manVoice = new Voice();
-manVoice.amplitude = 100;
-manVoice.pitch = 30;
-manVoice.speed = 100;
-manVoice.code = "m3";
+manVoice.setName("english-us")
+manVoice.setAmplitude(100);
+manVoice.setPitch(30);
+manVoice.setSpeed(100);
+manVoice.setVariant(true, 3);
 
-Espeak man = new Espeak(manVoice, "en");
+Espeak man = new Espeak(manVoice);
 man.speak("Hello World!");
 ```
 
@@ -26,6 +27,6 @@ man.speak("Hello World!");
 <dependency>
     <groupId>com.harium.hci</groupId>
     <artifactId>espeak</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
