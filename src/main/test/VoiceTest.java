@@ -22,8 +22,29 @@ public class VoiceTest {
         Assert.assertTrue(voice.getSpeed() < 200);
         Assert.assertTrue(voice.getGap() > -1);
         Assert.assertTrue(voice.getGap() < 10);
-        Assert.assertTrue(voice.getVaiant().equals(""));
+        Assert.assertTrue(voice.getVariant().equals(""));
     }
+
+    @Test
+    public void testSetVariant() {
+        // Custom variant (
+        voice.setVariant("custom");
+        Assert.assertEquals("custom", voice.getVariant());
+
+        voice.setWhisperVariant();
+        Assert.assertEquals("+whisper", voice.getVariant());
+
+        voice.setCroakVariant();
+        Assert.assertEquals("+croak", voice.getVariant());
+
+        boolean isMale = false;
+        voice.setVariant(isMale, 5);
+        Assert.assertEquals("+f5", voice.getVariant());
+
+        voice.removeVariant();
+        Assert.assertEquals("", voice.getVariant());
+    }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void testExceptionAmplitudeLow()

@@ -1,18 +1,19 @@
 # java-espeak
-Espeak java wrapper
+Simple [espeak](http://espeak.sourceforge.net) java wrapper, no JNI,
+no native libraries, no headache.
 
 You should install [espeak](http://espeak.sourceforge.net) to use this wrapper!
 
-## Simple Example
+## Minimal Example
 ```
 Espeak espeak = new Espeak();
 espeak.speak("Hello World!");
 ```
 
-## Complete Example
+## Example using voice
 ```
 Voice manVoice = new Voice();
-manVoice.setName("english-us")
+manVoice.setName("en-us")
 manVoice.setAmplitude(100);
 manVoice.setPitch(30);
 manVoice.setSpeed(100);
@@ -30,3 +31,7 @@ man.speak("Hello World!");
     <version>1.0.1</version>
 </dependency>
 ```
+
+## How it works
+This library calls espeak via [Process](https://docs.oracle.com/javase/7/docs/api/java/lang/Process.html).
+Everytime you call to Espeak.speak it creates a new thread to execute the process.

@@ -7,6 +7,7 @@ import java.io.IOException;
  */
 public class Espeak {
 
+    public static final String COMMAND_ESPEAK = "espeak";
     private Voice voice;
 
     public Espeak() {
@@ -23,16 +24,18 @@ public class Espeak {
      * @param text - the text to speak
      */
     public void speak(String text) {
-        execute("espeak",
-                "-v", voice.name + voice.variant,
-                "-p", Integer.toString(voice.pitch),
-                "-a", Integer.toString(voice.amplitude),
-                "-s", Integer.toString(voice.speed),
-                "-g", Integer.toString(voice.gap),
+        execute(COMMAND_ESPEAK,
+                "-v", voice.getName() + voice.getVariant(),
+                "-p", Integer.toString(voice.getPitch()),
+                "-a", Integer.toString(voice.getAmplitude()),
+                "-s", Integer.toString(voice.getSpeed()),
+                "-g", Integer.toString(voice.getGap()),
                 text);
     }
 
     private static void execute(final String ... command) {
+        String threadName = "espeak";
+
         new Thread(new Runnable() {
             public void run() {
                 ProcessBuilder b = new ProcessBuilder(command);
@@ -46,7 +49,7 @@ public class Espeak {
                     e.printStackTrace();
                 }
             }
-        }, "espeak").start();
+        }, threadName).start();
     }
 
 }

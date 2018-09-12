@@ -1,22 +1,24 @@
 package com.harium.hci.espeak;
 
+/**
+ * Class to represent Espeak's voice
+ * Reference: http://espeak.sourceforge.net/languages.html
+ */
 public class Voice {
 
-    String name = "default";
+    private String name = "default";
 
-    // Range from 0 ~ 99
-    int pitch = 50;
+    private int pitch = 50;
 
-    // Range from 0 ~ 200
-    int amplitude = 100;
+    private int amplitude = 100;
 
-    // Recommended range from 80 ~ 500
-    int speed = 175;
+    private int speed = 175;
 
-    // in 10th of mS
-    int gap = 0;
+    // in 10th of ms
+    private int gap = 0;
 
-    String variant = "";
+    // Voice variant
+    private String variant = "";
 
     public String getName() {
         return name;
@@ -52,6 +54,9 @@ public class Voice {
         return speed;
     }
 
+    /**
+     * @param speed - Reading speed (recommended range between 80 ~ 500)
+     */
     public void setSpeed(int speed) {
         if (speed < 1) {
             throw new IllegalArgumentException("The speed must be above 0");
@@ -65,32 +70,50 @@ public class Voice {
 
     public void setGap(int gap) {
         if (gap < 0) {
-            throw new IllegalArgumentException("The gap between word must be positive number");
+            throw new IllegalArgumentException("The gap between words must be positive number");
         }
         this.gap = gap;
     }
 
-    public String getVaiant() {
+    public String getVariant() {
         return variant;
     }
 
+    /**
+     * Method to set a custom variant
+     * @param variant - custom variant
+     */
+    public void setVariant(String variant) {
+        this.variant = variant;
+    }
+
+    /**
+     * @param isMale - if it is a male voice
+     * @param index  - index of voice
+     */
     public void setVariant(boolean isMale, int index) {
         if (isMale && (index < 1 || index > 7)) {
             throw new IllegalArgumentException("The variant index for male must be between 1 and 7");
         }
-        if (!isMale && (index < 1 || index > 4)) {
-            throw new IllegalArgumentException("The variant index for female must be between 1 and 4");
+        if (!isMale && (index < 1 || index > 5)) {
+            throw new IllegalArgumentException("The variant index for female must be between 1 and 5");
         }
 
-        variant = "+" + (isMale?"m":"f") + Integer.toString(index);
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("+");
+        builder.append(isMale ? "m" : "f");
+        builder.append(index);
+
+        setVariant(builder.toString());
     }
 
     public void setCroakVariant() {
-        variant = "+croak";
+        setVariant("+croak");
     }
 
     public void setWhisperVariant() {
-        variant = "+whisper";
+        setVariant("+whisper");
     }
 
     public void removeVariant() {
