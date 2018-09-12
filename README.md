@@ -28,7 +28,7 @@ man.speak("Hello World!");
 <dependency>
     <groupId>com.harium.hci</groupId>
     <artifactId>espeak</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
