@@ -8,11 +8,11 @@
     <version>1.0.2</version>
     <name>Java Espeak</name>
     <description>Espeak Java wrapper</description>
-    <url>http://github.com/harium/java-espeak</url>
+    <url>http://github.com/harium/espeak-java</url>
     <scm>
-        <connection>scm:git:git://github.com/harium/java-espeak.git</connection>
-        <developerConnection>scm:git:ssh://github.com:harium/java-espeak.git</developerConnection>
-        <url>http://github.com/harium/java-espeak/tree/master</url>
+        <connection>scm:git:git://github.com/harium/espeak-java.git</connection>
+        <developerConnection>scm:git:ssh://github.com:harium/espeak-java.git</developerConnection>
+        <url>http://github.com/harium/espeak-java/tree/master</url>
     </scm>
     <licenses>
         <license>
