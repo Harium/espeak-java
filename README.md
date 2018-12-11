@@ -35,3 +35,6 @@ man.speak("Hello World!");
 ## How it works
 This library calls espeak via [Process](https://docs.oracle.com/javase/7/docs/api/java/lang/Process.html).
 Everytime you call to Espeak.speak it creates a new thread to execute the process.
+
+## Thanks to
+- [MacFJA](https://github.com/MacFJA)
