@@ -101,7 +101,6 @@ public class Voice {
 
         StringBuilder builder = new StringBuilder();
 
-        builder.append("+");
         builder.append(isMale ? "m" : "f");
         builder.append(index);
 

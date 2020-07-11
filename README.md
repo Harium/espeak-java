@@ -13,7 +13,7 @@ espeak.speak("Hello World!");
 ## Example using voice
 ```
 Voice manVoice = new Voice();
-manVoice.setName("en-us")
+manVoice.setName("en-us");
 manVoice.setAmplitude(100);
 manVoice.setPitch(30);
 manVoice.setSpeed(100);
@@ -21,6 +21,19 @@ manVoice.setVariant(true, 3);
 
 Espeak man = new Espeak(manVoice);
 man.speak("Hello World!");
+```
+
+## Example foreign voice
+```
+Voice chineseVoice = new Voice();
+chineseVoice.setName("zh");
+chineseVoice.setAmplitude(100);
+chineseVoice.setPitch(30);
+chineseVoice.setSpeed(100);
+chineseVoice.setVariant("f2");
+
+Espeak woman = new Espeak(chineseVoice);
+woman.speak("Nǐ hǎo, shìjiè!");
 ```
 
 ## Maven
