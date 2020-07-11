@@ -41,7 +41,7 @@ woman.speak("Nǐ hǎo, shìjiè!");
 <dependency>
     <groupId>com.harium.hci</groupId>
     <artifactId>espeak</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 

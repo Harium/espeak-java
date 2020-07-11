@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.harium.hci</groupId>
     <artifactId>espeak</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>Java Espeak</name>
     <description>Espeak Java wrapper</description>
     <url>http://github.com/harium/espeak-java</url>
@@ -60,6 +60,7 @@
                     <source>1.7</source>
                     <target>1.7</target>
                     <optimize>true</optimize>
+                    <compilerArgument>-parameters</compilerArgument>
                 </configuration>
             </plugin>
             <plugin>
